@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .jumbotron {
+            font-size: 20px;
+            padding: 60px;
+            background-color: rgb(35, 112, 184);
+            text-align: center;
+            color: rgba(0, 0, 0, 0.932);
+        }
+        .form{
+            text-align: center;
+        }
+     
+        
+    </style>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    
+    <header>
+        <div class="jumbotron">
+            <h1>Wilayah Di indonesia</h1>
+            <img src="PETAINDONESIA.png" width="300" height="250">
+    </header>
+
+<body>
+  <div style="text-align: center;">
+    <p>Provinsi :</p>
+    <select style align = "center" name="Provinsi" id="Provinsi">
+    <option value="" selected="provinsi">          </option>
+    <select>
+    <br><br>     
+    <p>Kota :</p>  
+    <select name="kota" id="kota" onclick="output()">
+        <option value="" selected="Kota">         </option>
+      </select>
+      <br><br>
+    <h2 id="b">
+
+    </h2>
+</body>
+<script>
+    var wilayah = {
+    "Sumatera utara": {
+    "Medan": [],
+    "Binjai": [],
+    "Sibolga": [],
+    "Pematangsiantar": [],
+    "Gunungsitoli": []
+  },
+  "Bali": {
+    "Denpasar": [],
+    "Bangli": [],
+    "Buleleng": [],
+    "Gianyar": [],
+    "Jmebrana": []
+  },
+  "Jawa barat": {
+    "Bandung": [],
+    "Bogor": [],
+    "Bekasi": [],
+    "Garut": [],
+    "Cirebon": []
+  },
+  "Jawa Timur": {
+    "Batu": [],
+    "Blitar": [],
+    "Malang": [],
+    "Surabaya": [],
+    "Kediri": []
+  }
+}
+window.onload = function() {
+  var Provinsi = document.getElementById("Provinsi");
+  var kota = document.getElementById("kota");
+  var be = document.getElementById("b");
+  for (var x in wilayah) {
+    Provinsi.options[Provinsi.options.length] = new Option(x, x);
+  }
+  Provinsi.onchange = function() {
+
+    kota.length = 1;
+    
+    for (var y in wilayah[this.value]) {
+      kota.options[kota.options.length] = new Option(y, y);
+    }
+  }
+ 
+  }
+ function output (){
+  var Provinsi = document.getElementById("Provinsi");
+  var kota = document.getElementById("kota");
+  var be = document.getElementById("b");
+
+  be.innerHTML = "pada provinsi " + Provinsi.value + " ada kota " + kota.value;
+ }
+</script>
+ 
+
+</html>
